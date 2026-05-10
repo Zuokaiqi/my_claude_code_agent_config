@@ -11,6 +11,14 @@ debug/
 feishu_bot/
 file-history/
 projects/
+sessions/
+telemetry/
+shell-snapshots/
+memory/
+tasks/
+plans/
+hooks/
+mcp-needs-auth-cache.json
 
 # Claude Code内部
 .claude/
