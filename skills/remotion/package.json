@@ -1,0 +1,25 @@
+{
+	"repository": {
+		"url": "https://github.com/remotion-dev/remotion/tree/main/packages/skills"
+	},
+	"scripts": {
+		"dev": "remotion studio"
+	},
+	"name": "@remotion/skills",
+	"private": true,
+	"version": "4.0.456",
+	"devDependencies": {
+		"@remotion/eslint-config-internal": "^4.0.0",
+		"eslint": "catalog:",
+		"@remotion/bundler": "^4.0.0",
+		"remotion": "^4.0.0",
+		"react": "catalog:",
+		"react-dom": "catalog:",
+		"@remotion/shapes": "^4.0.0",
+		"@remotion/three": "^4.0.0",
+		"@remotion/cli": "^4.0.0",
+		"@typescript/native-preview": "catalog:",
+		"@remotion/lottie": "^4.0.0",
+		"@remotion/google-fonts": "^4.0.0"
+	}
+}

@@ -1,0 +1,41 @@
+{
+  "name": "business-analyst",
+  "version": "3.0.0",
+  "description": "商业数据分析师skill，面向决策者输出结构化分析报告。包含业务背景确认、商业假设验证、分析纪律检查、5套场景报告模板（渠道ROI、漏斗转化、留存、AB实验、定价），并生成PDF报告。",
+  "author": {
+    "name": "Zuojuzhang",
+    "email": "12341071+Zuojuzhang@user.noreply.gitee.com",
+    "url": "https://github.com/Zuokaiqi"
+  },
+  "homepage": "https://github.com/Zuokaiqi/claude-skill-business-analyst",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zuokaiqi/claude-skill-business-analyst.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "business-analyst",
+    "business-analysis",
+    "data-analysis",
+    "roi",
+    "decision-support",
+    "pdf-report",
+    "chinese",
+    "商业分析",
+    "商业分析师",
+    "数据分析"
+  ],
+  "skills": [
+    "./skills/business-analyst"
+  ],
+  "requirements": {
+    "python": ">=3.9",
+    "pip": [
+      "pandas>=2.0",
+      "openpyxl>=3.1"
+    ]
+  },
+  "compatibility": {
+    "claude-code": ">=1.0.0"
+  }
+}
