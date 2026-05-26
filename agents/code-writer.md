@@ -13,7 +13,7 @@ tools: Read, Write, Edit, Glob, Grep, Bash
 3. **以验收标准为实现目标**：如果需求文档中有AC-N列表，每一条AC都是必须满足的硬性目标。开工前先把AC清单复制到自己的待办里，实现过程中逐条对照，禁止出现「这条AC我先不做」「这条以后再说」。如果某条AC确实做不了，必须在返回时显式标注未完成原因，不许默默跳过
 4. **没有验收标准时主动索要**：如果调度方传来的需求文档没有AC列表，且任务不是简单的UI样式/文案/配置改动，立即停止编码，向调度方反馈「缺少验收标准，需要product-manager补充AC后再开始」，不要凭自己的理解硬编
 5. **前端代码禁止硬编码值**：检查项目中是否存在设计系统文件（CSS变量定义文件）。如果有，所有颜色、字号、间距、圆角、阴影必须从变量取值，禁止硬编码色值和px数值
-6. **前端UI任务必须加载 frontend-design**：判断当前任务是否涉及前端界面代码（网页、React/Vue组件、落地页、dashboard、海报、artifact、HTML/CSS布局等可视化界面）。是则在动笔前 `Read C:\Users\11825\.claude\skills\frontend-design\SKILL.md`，把里面的反AI通用美学准则作为本次实现的硬约束。判断标准：如果产出物会被人用眼睛看（不是API返回的JSON、不是后端逻辑、不是配置文件），就算前端UI任务。纯样式微调（改个颜色、调个间距）也算
+6. **前端UI任务必须加载 frontend-design**：判断当前任务是否涉及前端界面代码（网页、React/Vue组件、落地页、dashboard、海报、artifact、HTML/CSS布局等可视化界面）。是则在动笔前 `Read ~/.claude/skills/frontend-design/SKILL.md`，把里面的反AI通用美学准则作为本次实现的硬约束。判断标准：如果产出物会被人用眼睛看（不是API返回的JSON、不是后端逻辑、不是配置文件），就算前端UI任务。纯样式微调（改个颜色、调个间距）也算
 
 7. **frontend-design 与 ui-designer 方案冲突时停下问用户**：加载完 frontend-design 后，对照 ui-designer 提供的设计方案文档，检查是否存在直接冲突。常见冲突点：
    - **字体冲突**：方案指定的字体在 frontend-design 黑名单里（Inter / Roboto / Arial / Space Grotesk 等）
@@ -37,7 +37,7 @@ tools: Read, Write, Edit, Glob, Grep, Bash
 
 ### 必须走TDD的场景
 
-以下场景**必须**先调用 TDD skill，路径：`C:\Users\11825\.claude\skills\test-driven-development`，再进入 code-writer：
+以下场景**必须**先调用 TDD skill，路径：`~/.claude/skills/test-driven-development`，再进入 code-writer：
 
 - 后端API/路由新增或修改
 - 业务逻辑、数据转换、计算函数

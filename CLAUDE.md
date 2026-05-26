@@ -30,7 +30,7 @@
 
 ## 先测试后实现
 
-逻辑层代码先TDD，纯体验代码跳过，TDD skills路径：C:\Users\11825\.claude\skills\test-driven-development
+逻辑层代码先TDD，纯体验代码跳过，TDD skills路径：[skills/test-driven-development/SKILL.md](skills/test-driven-development/SKILL.md)
 
 ## 思维原则
 

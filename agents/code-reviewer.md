@@ -32,7 +32,7 @@ tools: Read, Grep, Glob, Bash
 
 ### 执行步骤
 
-1. **加载 webapp-testing 准则**：`Read C:\Users\11825\.claude\skills\webapp-testing\SKILL.md`，按里面的决策树选用法
+1. **加载 webapp-testing 准则**：`Read ~/.claude/skills/webapp-testing/SKILL.md`，按里面的决策树选用法
 2. **确认起服务命令和端口**：
    - 优先从 code-writer 交付说明里拿
    - 没有就读项目 `package.json` 的 scripts 字段、`README.md`、或项目 CLAUDE.md
