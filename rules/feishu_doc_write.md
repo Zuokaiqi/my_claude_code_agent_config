@@ -91,10 +91,12 @@ GET /docx/v1/documents/{doc_token}/blocks/{block_id}
 
 ---
 
-## 四、API凭证（同CLAUDE.md）
+## 四、API凭证
 
-- app_id: `cli_a9530738d5b85bcd`
-- app_secret: `dnNsXP6F0FTYHRNnX3Eaee6r07cO3rzn`
+真实凭证不写在本文件（本仓库为 public，禁止明文密钥入库）。app_id 与 app_secret 存放于本地未追踪文件 `rules/feishu_credentials.local.md`（已被 .gitignore 排除），调用前从该文件读取。
+
+- app_id: `<见 rules/feishu_credentials.local.md>`
+- app_secret: `<见 rules/feishu_credentials.local.md>`
 - 获取tenant_access_token接口: `https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal`
 - 多维表格记录查询: `https://open.feishu.cn/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records`
 - 列出多维表的tables: `https://open.feishu.cn/open-apis/bitable/v1/apps/{app_token}/tables`

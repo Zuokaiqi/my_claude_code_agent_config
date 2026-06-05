@@ -27,3 +27,19 @@ scripts/
 
 # 技能目录（如有敏感的）
 stories/
+
+# 本地运行时/敏感数据（不同步）
+settings.local.json
+skills-lock.json
+*.local.md
+rules/feishu_credentials.local.md
+.last-cleanup
+downloads/
+paste-cache/
+plugins/
+scheduled-tasks/
+session-env/
+
+# 技能eval工作区与打包产物（scratch，非配置本体）
+skills/*-workspace/
+skills/business-analyst.zip

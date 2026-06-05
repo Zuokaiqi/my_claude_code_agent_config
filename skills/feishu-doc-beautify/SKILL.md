@@ -1,153 +1,169 @@
 ---
 name: feishu-doc-beautify
-description: |
-  飞书云文档排版美化 Skill。当用户要求"美化飞书文档""排版好看点""加点样式""文档太丑了""帮我排版"或创建日报/会议纪要/周报等飞书文档时使用。
-  
-  本 Skill 提供：
-  1. 多场景排版模板（日报/会议纪要/周报）
-  2. 通用一键美化能力（任意文档自动优化）
-  3. 视觉点缀方案（Callout、分栏、配色、表格美化）
-  
-  触发关键词：美化、排版、样式、好看、太丑了、美化一下、一键排版、自动排版、文档美化、飞书排版、排版优化、加个样式、换个样式。
-  场景关键词：日报、会议纪要、周报、会议记录、晨会、夕会、周会、汇报。
+description: Use when Codex needs to create, rewrite, beautify, restyle, or optimize a Feishu docx document, especially for document layout, visual hierarchy, callouts, tables, sales pages, course introductions, meeting notes, daily reports, weekly reports, summaries, and user-facing Feishu documents.
 ---
 
 # feishu-doc-beautify
 
-给飞书文档一键穿上好看的衣服。
+## Trigger
 
-## 什么时候用
+Use this skill when the task involves a Feishu document and any of these signals appears:
 
-- 用户说"美化一下这个文档"
-- 用户说"排版好看点"
-- 用户说"太丑了，加点样式"
-- 用户创建日报/会议纪要/周报时
-- 用户说"帮我排个版"
+- 用户要求美化、排版、优化样式、加样式、换风格、文档太丑、整理到飞书文档。
+- 用户要求创建课程介绍、销售页、训练营介绍、活动招募、日报、周报、会议纪要、汇报文档。
+- 用户给出一个已有飞书文档，希望吸收、复刻或改进它的排版风格。
+- 用户没有说美化，但交付物是给人看的飞书文档，需要主动做阅读体验设计。
 
-## 工作流程
+Do not treat this as a template-copying skill. The job is to make the document easier to read, decide, and act on.
 
-### 场景 1：创建新文档（带模板）
+## Context
 
-```
-1. 判断文档类型（日报/会议纪要/周报/其他）
-2. 读取对应模板：[references/daily-template.md] / [references/meeting-template.md] / [references/weekly-template.md]
-3. 用 feishu_create_doc 创建文档，套用模板格式
-4. 根据实际内容填充数据
-```
+Before writing or rewriting a live Feishu document, identify these context items. If a missing item changes the result materially, ask the user first. If the intent is already clear, make a conservative choice and proceed.
 
-### 场景 2：美化现有文档（一键优化）
+| Context | What to determine | Default if unclear |
+|---|---|---|
+| Core goal | 读者看完要做什么，理解、购买、执行、复盘、汇报、决策 | 让读者快速理解并能行动 |
+| Audience | 老学员、新用户、团队成员、管理者、候选人、公开读者 | 面向不熟悉上下文的外部读者 |
+| Document type | 销售页、课程介绍、会议纪要、日报、周报、总结、操作指南 | 通用说明文档 |
+| Tone | 商务、轻量、亲近、克制、活泼、正式 | 克制、清晰、少装饰 |
+| Information density | 快速扫读、详细交付、执行清单、长期沉淀 | 先扫读，再展开 |
+| Must keep | 原文、图片、评论、表格、标题、关键表述 | 不覆盖原文，局部改写 |
+| Visual reference | 用户给的样例文档、截图、已有品牌风格 | 只吸收机制，不照搬内容 |
 
-```
-1. 用 feishu_fetch_doc 读取原文档内容
-2. 读取通用美化指南：[references/general-beautify.md]
-3. 按检查清单逐项优化：
-   - 标题层级 → 颜色区分
-   - 大段文字 → 拆分为 Callout 或分栏
-   - 关键信息 → 用 Callout 突出
-   - 对比/概览 → 用 Grid 分栏
-   - 数据 → 用表格整理
-4. 用 feishu_update_doc（replace_range 或 overwrite）写入
-```
+Templates are context inputs, not the workflow. Existing references can help, but never start by mechanically applying them:
 
-### 场景 3：用户指定风格
+- `references/general-beautify.md`：通用检查清单。
+- `references/daily-template.md`：日报参考。
+- `references/meeting-template.md`：会议纪要参考。
+- `references/weekly-template.md`：周报参考。
 
-用户说"要商务风"/"要活泼点"/"要简洁"：
-- 商务风 → 少用 emoji，多用蓝色/灰色，表格为主
-- 活泼风 → emoji 丰富，多色 Callout，分栏卡片
-- 简洁风 → 少颜色，少装饰，留白多，层级清晰
+When a sample document is provided, extract its layout grammar:
 
-## 核心排版能力
+- 入口块怎么开场。
+- 标题层级有几层。
+- 表格承担什么判断。
+- callout数量、颜色、emoji是否统一。
+- 列表是主结构还是辅助结构。
+- 结尾是行动、总结、风险提示还是情绪收束。
 
-### 1. Callout 高亮块
+## Workflow
 
-```markdown
-<callout emoji="💡" background-color="light-blue" border-color="blue">
-提示内容
-</callout>
-```
+### 1. Read And Diagnose
 
-常用组合：
-- 💡 light-blue → 提示/说明
-- ⚠️ light-yellow → 警告/注意
-- ❌ light-red → 错误/风险
-- ✅ light-green → 成功/达成
-- 📌 light-purple → 重要信息
+For an existing document, fetch the document structure before proposing layout changes. Inspect:
 
-### 2. Grid 分栏
+- top-level block count and block types。
+- heading sequence and depth。
+- callout count, color, emoji, nesting。
+- table count, row and column shape。
+- list density and nesting depth。
+- long paragraphs, repeated blocks, missing section boundaries。
 
-```markdown
-<grid cols="2">
-<column>
+For a new document, inspect the source material and decide the document job first. Do not start from a template.
 
-左侧内容
+### 2. Confirm Or Choose Direction
 
-</column>
-<column>
+If the user only says beautify or make it look better, provide a short direction before writing:
 
-右侧内容
+| Direction | Use when | Layout behavior |
+|---|---|---|
+| Light sales page | 课程介绍、低价体验课、训练营招募、私域转化 | 一句话callout开场，H1浅层标题，少量表格，短段落，结尾收束 |
+| Business brief | 汇报、复盘、决策说明 | 蓝灰主色，表格承载判断，callout只放结论和风险 |
+| Meeting summary | 会议纪要、行动项、对齐记录 | 元信息块，议题分段，行动项表格，风险和待确认单独列出 |
+| Execution checklist | 上线清单、todo、项目推进 | 表格优先，负责人、截止时间、验收口径清楚 |
+| Clean reference doc | 知识库、操作指南、长期沉淀 | 标题层级稳定，少颜色，少callout，步骤清楚 |
 
-</column>
-</grid>
-```
+If the user gives a clear target, skip the choice list and execute.
 
-适用：对比、概览卡片、步骤说明
+### 3. Build The Layout
 
-### 3. 表格
+Use layout units by job, not by decoration:
 
-简单数据用标准 Markdown 表格，复杂单元格用：
+| Unit | Use for | Rules |
+|---|---|---|
+| Opening callout | 一句话定位、核心承诺、关键结论 | 1到2行，优先浅蓝，整篇最多1个主入口 |
+| H1 section | 读者决策路径上的大问题 | 课程销售页可只用H1，避免强拆H2/H3 |
+| H2/H3 | 长文档的局部层级 | 只在需要导航时使用，不为显得完整而加 |
+| Table | 对比、目录、适合人群、价格、交付物、行动项 | 表格必须帮助判断，不能把所有文字塞进表格 |
+| Callout | 结论、提醒、风险、价格、关键承诺 | 整篇3到5个，颜色和emoji保持统一 |
+| List | 收获、背书、风险、收尾短句 | 单组3到6条，每条尽量一行，不做多层嵌套 |
+| Divider | 大段落之间的呼吸 | 用于分区，不要每个小块都加 |
 
-```markdown
-<lark-table column-widths="200,300,230" header-row="true">
-<lark-tr>
-<lark-td>
+### 4. Style By Document Type
 
-**表头1**
+For light sales pages and course introductions:
 
-</lark-td>
-<lark-td>
+- Start with one concise callout.
+- Use shallow headings, often H1 only.
+- Put course outline, fit or not fit, pricing, deliverables into small tables.
+- Use short paragraphs to carry persuasion and explanation.
+- Use lists only for quick scanning, not as the whole document skeleton.
+- End with a separate closing section. The closing should lower action friction or clarify next step, not introduce new information.
 
-**表头2**
+For business documents:
 
-</lark-td>
-</lark-tr>
-</lark-table>
-```
+- Use blue and gray as the base.
+- Put decision-making information into tables.
+- Put risks and decisions into callouts.
+- Keep emoji sparse.
 
-### 4. 文字颜色
+For execution documents:
 
-```markdown
-<text color="red">红色文字</text>
-```
+- Prefer tables over prose.
+- Include owner, status, deadline, evidence, acceptance criteria when available.
+- Keep decorative callouts minimal.
 
-颜色：red, orange, yellow, green, blue, purple, gray
+### 5. Write Or Update
 
-### 5. 标题样式
+When writing to Feishu:
 
-```markdown
-# 一级标题 {color="blue" align="center"}
-## 二级标题 {color="blue"}
-```
+- Prefer local replacement or append when preserving comments and media matters.
+- Use full overwrite only when creating a new document or when the user explicitly accepts replacement.
+- Keep single append requests small enough for Feishu API limits.
+- For tables, fill cells sequentially and expect empty cells to be valid.
+- Verify raw content or block structure after writing.
 
-## 场景模板速查
+## Boundary
 
-| 用户说的 | 读取模板 | 核心特征 |
-|---------|---------|---------|
-| "来个日报" / "AI 日报" | daily-template.md | 分栏概览 + 分类列表 + 全局编号 |
-| "会议纪要" / "开会记一下" | meeting-template.md | 元信息卡片 + 议程分栏 + 行动项表格 |
-| "周报" / "这周汇报" | weekly-template.md | 三栏概览 + 进度 checklist + 数据表格 |
-| "美化一下" / "太丑了" | general-beautify.md | 标题层级 + Callout + Grid + 表格 + 颜色 |
+- Do not use templates as the first decision. Templates are references after context is understood.
+- Do not over-table sales pages. Tables should clarify decisions, not make the page feel like a spreadsheet.
+- Do not turn every paragraph into a callout.
+- Do not use more than3title colors in one document.
+- Do not use more than5callouts on a normal-length page.
+- Do not use nested grids beyond2levels.
+- Do not place a table inside a table.
+- Do not overwrite user comments, images, or existing media unless the user approves.
+- Do not output secrets, app credentials, tenant tokens, OAuth codes, document tokens from private notes, or authorization headers.
+- Do not present a style as copied from another document unless only layout mechanisms were reused.
 
-## 重要约束
+## Failure Handling
 
-- **先确认后执行**：用户说"帮我排版"时，先给出排版方案（用什么颜色、什么结构），确认后再写入文档
-- **不覆盖原文**：尽量用 replace_range 局部替换，避免 overwrite 丢失图片/评论
-- **颜色克制**：同一段落不超过 2 种颜色，整页不超过 3 种标题色
-- **Callout 克制**：一页不超过 5 个 Callout，多了就失去突出效果
-- **留白优先**：段落之间空一行，分类之间空两行
+| Failure | Handling |
+|---|---|
+| Missing goal or audience | Ask for the smallest missing decision if it changes structure. Otherwise choose a conservative clear style. |
+| User wants pretty but source is unclear | First read the document or source material, then propose the layout direction. |
+| Existing doc contains comments or images | Avoid overwrite. Use append or targeted replacement. |
+| Feishu permission denied | Tell the user the app needs edit permission or collaborator access. Do not retry blindly. |
+| Feishu internal error while writing table cells | Add diagnostic context for table title, row, column, and cell length. Retry with smaller tables or simpler text blocks. |
+| Too much content for one page | Split into main document plus appendix, or collapse details into tables. |
+| Style reference conflicts with user goal | Follow the goal. Use the reference only where it improves readability. |
+| Template mismatch | Stop using the template. Rebuild from context and document job. |
 
-## 工具配合
+## Output Tone Constraints
 
-- 创建文档 → `feishu_create_doc`
-- 读取文档 → `feishu_fetch_doc`
-- 更新文档 → `feishu_update_doc`
-- 插入图片 → `feishu_doc_media`（本地图片追加到文档末尾）
+All writing produced through this skill must follow these constraints:
+
+1. Avoid self-labeling phrases such as 老实说、说实话、坦白讲、不夸张地说, and avoid self-commentary about the judgment being made.
+2. Do not explain the assistant's own intention.
+3. Do not end with routine guiding questions such as 要不要我 or 想不想我.
+4. Do not use em dashes or Chinese full-width dash pairs.
+5. Avoid oily emotional phrases such as 掏心窝、肺腑之言、真心话、走心.
+6. Do not preface work with self-declared seriousness or responsibility.
+7. In Chinese prose, do not add spaces between Chinese and English, numbers, or code words unless the code span requires it.
+8. Avoid stock AI service phrases such as 帮你拆、帮你梳理、先记住、我们来看、结构化、算笔账、铁律.
+9. Use Chinese punctuation in Chinese prose. Code blocks are exempt.
+10. Do not describe the writing method with labels such as XX感、XX式路径、XX式结构、XX式切入.
+11. Do not use action-metaphor previews such as 泼点冷水、加点料、敲黑板、划重点、开个小灶、上点硬菜.
+12. Do not insert fake emotional reactions such as 整个人愣住了、我直接傻眼、瞳孔地震.
+13. Do not create strawman contrast. If using 不是XX，是XX, make sure XX is a real reader belief or behavior.
+14. Avoid marketing-account warning cliches such as 千万别、小心、警惕, and avoid exaggerated phrases such as 坑惨、翻车现场、血亏.

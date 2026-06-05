@@ -52,7 +52,7 @@ claude plugin install Zuokaiqi/claude-skill-business-analyst
 
 ### 方式三：手动复制
 
-下载本仓库后，将 `skills/business-analyst/` 目录整个复制到 `~/.claude/skills/business-analyst/`。
+下载本仓库后，将仓库内容整个复制到 `~/.claude/skills/business-analyst/`。
 
 ## 依赖
 
@@ -94,18 +94,15 @@ skill 会自动触发，并按工作流先反问你 2-3 个业务背景问题（
 ```
 business-analyst/
 ├── SKILL.md                       # 主 prompt（角色 + 工作流 + 阶段一模板选择）
-├── references/
-│   ├── pdf_rendering.md          # PDF 渲染技术路径（Playwright + Paged.js）
-│   ├── report_examples.md        # 好/差分析对比示例
-│   └── templates/                # 5 套报告模板
-│       ├── channel_roi.md
-│       ├── funnel_conversion.md
-│       ├── retention.md
-│       ├── ab_test.md
-│       └── pricing.md
-└── scripts/                       # 历史辅助脚本，非默认执行路径
-    ├── chart_style.py
-    └── pdf_report.py
+└── references/
+    ├── pdf_rendering.md          # PDF 渲染技术路径（Playwright + Paged.js）
+    ├── report_examples.md        # 好/差分析对比示例
+    └── templates/                # 5 套报告模板
+        ├── channel_roi.md
+        ├── funnel_conversion.md
+        ├── retention.md
+        ├── ab_test.md
+        └── pricing.md
 ```
 
 ## 给其他 Agent 使用
