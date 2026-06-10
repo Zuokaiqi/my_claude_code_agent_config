@@ -135,6 +135,12 @@
 | utilize | use |
 | navigate | go through |
 | harness | use |
+| supercharge / turbocharge | speed up / make X faster |
+| transform / transformative | change / rebuild |
+| seamless | smooth（或删） |
+| world-class / best-in-class | （删，自夸无信息，用具体数字代替） |
+| enterprise-grade | （删，或说具体能力如 SOC2/SSO） |
+| mission-critical | （删，或说具体后果） |
 
 ## AI 腔结构反例
 
@@ -145,6 +151,15 @@
 - ❌「我们不是工具，是伙伴」—— 没人会把工具理解成伙伴
 - ❌「不是核对错别字，是核对结论」—— 没人会把审稿理解成对错别字
 - ✅「不是 Notion 的替代品，是 Notion 用户的快速版」—— 「替代品」是真实存在的误解
+
+### 反 X-theater / actually-X 套话
+
+用句式制造深刻感、实则没信息的 instant slop，一律禁：
+
+- 英文：「productivity theater」「engagement theater」（XX 剧场）、「not just X, it's Y」、「actually X」当卖点
+- 中文：「真正意义上的 X」「不只是 X，更是 Y」「重新想象 X」「X 不止于 X」
+
+删掉，直接说具体做了什么。
 
 ### 反 meta-commentary
 

@@ -16,9 +16,9 @@ tools: Read, Write, Edit, Glob, Grep, Bash
    - 任务涉及逻辑/业务/数据/接口改动 → 立即停止编码，向调度方反馈「缺少AC文档，需要product-manager补充后再开始」，不要凭理解硬编
 5. **前端代码禁止硬编码值**：检查项目中是否存在设计系统文件（CSS变量定义文件）。如果有，所有颜色、字号、间距、圆角、阴影必须从变量取值，禁止硬编码色值和px数值
 6. **前端任务的审美来源（按需加载，不一刀切）**：
-   - 有 ui-designer 方案文档 → 照方案实现，**不加载** frontend-design（方案已是 frontend-design 审美下的产物，信任上游）
-   - 无方案 + **小调整**（改单个色值/单个 padding/单个字号/已有组件状态文案/总改动 < 30 行）→ **不加载** frontend-design，沿用项目现状即可
-   - 无方案 + **新组件/新页面/新视觉风格/审美方向不明** → `Read ~/.claude/skills/frontend-design/SKILL.md`，按它的反AI审美准则把握字体/配色/动效/布局
+   - 有 ui-designer 方案文档 → 照方案实现，**不加载** ui-taste（方案已是 ui-taste 审美下的产物，信任上游）
+   - 无方案 + **小调整**（改单个色值/单个 padding/单个字号/已有组件状态文案/总改动 < 30 行）→ **不加载** ui-taste，沿用项目现状即可
+   - 无方案 + **新组件/新页面/新视觉风格/审美方向不明** → `Read ~/.claude/skills/ui-taste/SKILL.md`，走它的 Design Read 一句话 + 三个 dial + 按域加载 references（配色 color.md / 排版 typography.md / 布局 layout-spacing.md / 动效 motion.md / 反AI套路 ai-tells-blacklist.md）。交付前过 ai-tells-blacklist 的黑名单和 AI Slop Test
    - 是不是前端任务的判断：产出物会被人用眼睛看（不是API返回的JSON、不是后端逻辑、不是配置文件）就算
 
 7. **TDD 处理**：按下方 TDD 三档判定
@@ -120,6 +120,8 @@ tools: Read, Write, Edit, Glob, Grep, Bash
 
 **非前端任务**（纯 API/数据库/调度/CLI）→ 整段跳过，输出栏写「不涉及」。
 
+**动画验证（Motion claimed=shown）**：本次实现了任何动画或过渡（hover 态以外的 transition/animation/scroll 效果）→ 实跑时确认动画真的呈现，不是代码里写了 CSS 但实际没触发。声称有动画却跑不出来视为未完成，要么修到能跑要么去掉别留半成品。
+
 档位判断不准时升一档（多跑），不要降一档（漏验）。
 
 3. 按以下格式返回，先判定走哪套：
@@ -186,8 +188,8 @@ tools: Read, Write, Edit, Glob, Grep, Bash
 （非前端任务时此栏写「不涉及」）
 
 ## 前端审美来源
-- 来源：<照 ui-designer 方案 / 自己加载 frontend-design / 非前端任务不涉及>
-- 若自己加载 frontend-design：简述遵循了哪几条反AI审美准则
+- 来源：<照 ui-designer 方案 / 自己加载 ui-taste / 非前端任务不涉及>
+- 若自己加载 ui-taste：简述 Design Read 一句话、三个 dial 取值、过黑名单和 AI Slop Test 的结果
 
 ## 运行时自测证据
 - 是否前端任务：<是/否，否则此栏写「不涉及」>

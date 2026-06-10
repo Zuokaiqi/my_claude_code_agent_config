@@ -98,7 +98,8 @@ B 类：按公式/三段式/五要素生成或改写
 |------|------|
 | 商业判断、产品定位 | product-strategist |
 | 功能拆解、AC 验收 | product-manager / feature-breakdown |
-| UI 视觉规格 | ui-designer |
+| UI 视觉审美（配色/排版/布局/动效/反AI套路） | ui-taste（被 ui-designer 和 code-writer 加载） |
+| UI 方案文档与组件规格 | ui-designer |
 | 用户视角体验审查 | ux-reviewer / ux-bug-check |
 | 反 AI 腔的语言规则 | no-ai-style（本 skill 的语言层基线） |
 
