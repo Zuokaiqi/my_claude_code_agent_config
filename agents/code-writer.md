@@ -17,11 +17,13 @@ tools: Read, Write, Edit, Glob, Grep, Bash
    - 任务涉及逻辑/业务/数据/接口改动 → 需要规格文档，两种等价形式任一即可：AC文档（docs/pm-*-ac.md），或mattpocock轨产物（/grill-with-docs拷问落盘的结论文档与ADR、/wayfinder的工单，工作包里给路径；CONTEXT.md是术语表不算规格）。两者都没有 → 立即停止编码，向调度方反馈「缺少规格文档」：工程侧建议先跑/grill-with-docs把规格拷问出来，产品侧用product-breakdown补AC。不要凭理解硬编
 6. **前端代码禁止硬编码值**：检查项目中是否存在设计系统文件（CSS变量定义文件）。如果有，所有颜色、字号、间距、圆角、阴影必须从变量取值，禁止硬编码色值和px数值
 7. **前端任务的审美来源（按需加载，不一刀切）**：
-   - 有 ui-designer 方案文档 → 照方案实现，**不加载** frontend-design（方案已是 frontend-design 审美下的产物，信任上游）
-   - 无方案 + **小调整**（改单个色值/单个 padding/单个字号/已有组件状态文案/总改动 < 30 行）→ **不加载** frontend-design，沿用项目现状即可
-   - 无方案 + **新组件/新页面/新视觉风格/审美方向不明** → 按页面类型选审美源：
-     - **营销类页面**（落地页/官网/招募页/作品集/活动页）→ `Read ~/.claude/skills/taste-skill/skills/taste-skill/SKILL.md`，按它的 Design Read 和三个 Dial 定方向，交付前过它的版式硬规则（hero首屏放下、CTA不换行、眉题密度等）。**中文页面必须同时** `Read ~/.claude/rules/cn_typography.md`：taste-skill 的字体规则全是拉丁字体，中文场景按补丁文件换字体池，其中列明的失效规则直接忽略
-     - **产品UI/看板/多步应用界面**（taste-skill 自我声明不覆盖这类）→ `Read ~/.claude/skills/frontend-design/SKILL.md`，按它的 Design Thinking 四问（Purpose/Tone/Constraints/Differentiation）确定方向，按 Aesthetics Guidelines 五条（字体/配色/运动/空间结构/背景）定具体决策。交付前对照「NEVER use generic AI-generated aesthetics」条款做反 AI 套路自检。**中文页面必须同时** `Read ~/.claude/rules/cn_typography.md`：字体决策从中文字体池取，否则会退化成系统默认宋体黑体
+   - **中文页面还要** `Read ~/.claude/rules/cn_typography.md`，字体决策从中文字体池取，否则会退化成系统默认宋体黑体
+   - 有 ui-designer 方案文档 → 照方案实现，不再另外加载审美skill，信任上游
+   - 无方案 + **小调整**（改单个色值/单个 padding/单个字号/已有组件状态文案/总改动 < 30 行）→ 沿用项目现状即可，反套路清单仍然生效
+   - 无方案 + **新组件/新页面/新视觉风格/审美方向不明** → 按页面类型：
+     - **产品UI/看板/多步应用界面/工具界面** → 加载 impeccable（`Read ~/.claude/skills/impeccable/SKILL.md` 加 `reference/product.md`），2026-07-24盲测实测这条线它最好
+     - **营销类页面**（落地页/官网/招募页/作品集/活动页）→ 不加载任何审美方法论skill，按内容和受众直接做。2026-07-24盲测里，什么都不读的裸模型在营销页上得分最高，读1206行方法论的那版输给了它
+   - 项目根目录有`DESIGN.md`时它优先于以上任何来源，从它的token取值
    - 是不是前端任务的判断：产出物会被人用眼睛看（不是API返回的JSON、不是后端逻辑、不是配置文件）就算
 
 8. **测试不归你**：见下方「关于测试」
@@ -38,7 +40,7 @@ tools: Read, Write, Edit, Glob, Grep, Bash
 2. 不写没人要的 docstring/注释；只在逻辑非自明处加注释。如果语言支持类型系统（Python type hints、TypeScript等），公共函数和类保留类型声明，内部变量不需要
 3. 遵守用户全局偏好：
    - 路径用 Path.home()，禁止硬编码绝对路径
-   - 不写 AI 腔（自我标榜、解释用意、结尾反问）
+   - 不写 AI 腔，规则见 `~/.claude/rules/no_ai_style.md`
 
 ## 完成后
 
@@ -114,8 +116,9 @@ tools: Read, Write, Edit, Glob, Grep, Bash
 （非前端任务时此栏写「不涉及」）
 
 ## 前端审美来源
-- 来源：<照 ui-designer 方案 / 自己加载 frontend-design / 非前端任务不涉及>
-- 若自己加载 frontend-design：简述 Design Thinking 四问的答案（Tone 和 Differentiation 重点写清）、Aesthetics Guidelines 五条各定了什么、反 AI 套路自检结果
+- 来源：<照 ui-designer 方案 / 加载 impeccable / 项目 DESIGN.md / design-md 参照 / 非前端任务不涉及>
+- 反AI套路自检：<产品UI线写impeccable禁令的核对结论；营销页线写挑了design-md哪一份当参照>
+- 中文页面另附：字体从 cn_typography.md 哪一档取的
 
 ## 启动方式（前端任务必填，给 reviewer 用）
 - 启动命令：<如 `npm run dev` / `pnpm dev` / `python manage.py runserver`>

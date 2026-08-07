@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="680" viewBox="0 0 680 680" role="img">
+<title>一次session开场的上下文构成（2026-07-25减法后）</title>
+<desc>无条件注入从55k降到36.5k，rules从九份36k降到七份17.3k。</desc>
+<style>
+.bg{fill:#FFFFFF}
+.th{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;font-size:14px;font-weight:500}
+.ts{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;font-size:12px}
+.tm{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px}
+.ln{stroke:#B4B2A9;stroke-width:1.5;fill:none}
+.c rect{fill:#FAECE7;stroke:#993C1D;stroke-width:1}
+.c .th{fill:#712B13}
+.c .ts,.c .tm{fill:#993C1D}
+.t rect{fill:#E1F5EE;stroke:#0F6E56;stroke-width:1}
+.t .th{fill:#085041}
+.t .ts,.t .tm{fill:#0F6E56}
+.g rect{fill:#F1EFE8;stroke:#5F5E5A;stroke-width:1}
+.g .th{fill:#444441}
+.g .ts,.g .tm{fill:#5F5E5A}
+.lg{fill:#5F5E5A;font-family:-apple-system,"PingFang SC",sans-serif;font-size:12px}
+@media (prefers-color-scheme:dark){
+.bg{fill:#1B1B1A}
+.ln{stroke:#888780}
+.c rect{fill:#712B13;stroke:#F0997B}
+.c .th{fill:#F5C4B3}
+.c .ts,.c .tm{fill:#F0997B}
+.t rect{fill:#085041;stroke:#5DCAA5}
+.t .th{fill:#9FE1CB}
+.t .ts,.t .tm{fill:#5DCAA5}
+.g rect{fill:#444441;stroke:#B4B2A9}
+.g .th{fill:#D3D1C7}
+.g .ts,.g .tm{fill:#B4B2A9}
+.lg{fill:#B4B2A9}
+}
+</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect class="bg" x="0" y="0" width="680" height="680"/>
+
+<g class="g"><rect x="170" y="8" width="340" height="42" rx="6"/><text class="th" x="340" y="27" text-anchor="middle">一次 session 开场</text><text class="ts" x="340" y="43" text-anchor="middle">2026-07-25 减法之后</text></g>
+<line class="ln" x1="340" y1="50" x2="340" y2="62" marker-end="url(#arrow)"/>
+
+<g class="c"><rect x="20" y="64" width="640" height="40" rx="6"/><text class="th" x="36" y="83">无条件注入　约 36.5k token</text><text class="ts" x="644" y="83" text-anchor="end">改之前 55k，省下 18.5k</text></g>
+
+<g class="c"><rect x="20" y="112" width="310" height="196" rx="6"/>
+<text class="th" x="36" y="133">rules/ 七份</text><text class="th" x="314" y="133" text-anchor="end">17.3k</text>
+<text class="tm" x="36" y="157">no_ai_style.md</text><text class="tm" x="314" y="157" text-anchor="end">4.7k</text>
+<text class="tm" x="36" y="179">error_log.md</text><text class="tm" x="314" y="179" text-anchor="end">3.2k</text>
+<text class="tm" x="36" y="201">frontend_antislop.md</text><text class="tm" x="314" y="201" text-anchor="end">2.8k</text>
+<text class="tm" x="36" y="223">sub_agent_dispatch.md</text><text class="tm" x="314" y="223" text-anchor="end">2.5k</text>
+<text class="tm" x="36" y="245">cn_typography.md</text><text class="tm" x="314" y="245" text-anchor="end">1.8k</text>
+<text class="ts" x="36" y="267">其余两份</text><text class="tm" x="314" y="267" text-anchor="end">2.3k</text>
+<text class="ts" x="36" y="293">原来九份 36k，砍掉一半以上</text>
+</g>
+
+<g class="c"><rect x="350" y="112" width="310" height="196" rx="6"/>
+<text class="th" x="366" y="133">另外四项</text><text class="th" x="644" y="133" text-anchor="end">19.2k</text>
+<text class="ts" x="366" y="157">43 个 skill 的描述</text><text class="tm" x="644" y="157" text-anchor="end">约10.2k</text>
+<text class="tm" x="366" y="179">全局 CLAUDE.md</text><text class="tm" x="644" y="179" text-anchor="end">4.4k</text>
+<text class="tm" x="366" y="201">workspace/CLAUDE.md</text><text class="tm" x="644" y="201" text-anchor="end">4.4k</text>
+<text class="tm" x="366" y="223">MEMORY.md</text><text class="tm" x="644" y="223" text-anchor="end">0.2k</text>
+<text class="ts" x="366" y="249">这一项这次没动</text>
+<text class="ts" x="366" y="271">skill 从 42 个变 43 个</text>
+</g>
+
+<line class="ln" x1="340" y1="308" x2="340" y2="322" marker-end="url(#arrow)"/>
+
+<g class="t"><rect x="20" y="324" width="640" height="40" rx="6"/><text class="th" x="36" y="343">条件触发　用到才读</text><text class="ts" x="644" y="343" text-anchor="end">这次把三份挪到了这一层</text></g>
+
+<g class="t"><rect x="20" y="372" width="640" height="94" rx="6"/>
+<text class="ts" x="36" y="394">feishu-doc　　新建的 skill，飞书一周只用一次，不再常驻</text>
+<text class="ts" x="36" y="418">token 模板　　并进 ui-designer，只在建设计系统时读到</text>
+<text class="ts" x="36" y="442">飞书凭证　　　移到 secrets/，明文不再进上下文</text>
+<text class="ts" x="36" y="460">原有的：SYSTEM.md 路由、各 skill 正文、impeccable、design-md</text>
+</g>
+
+<g class="g"><rect x="20" y="482" width="640" height="108" rx="6"/>
+<text class="th" x="36" y="503">这次动了什么</text>
+<text class="ts" x="36" y="525">一　sub_agent_dispatch 从 331 行砍到 80 行，只留四条事故换来的硬约束</text>
+<text class="ts" x="36" y="545">二　飞书两份挪成 skill，凭证移出 rules，顺带解决密钥常驻</text>
+<text class="ts" x="36" y="565">三　design_template 并进 ui-designer 附录</text>
+<text class="ts" x="36" y="583">四　no_ai_style 23 条合并到 9 组，词表一条没删，只删溯源日期</text>
+</g>
+
+<g class="c"><rect x="20" y="608" width="12" height="12" rx="2"/></g><text class="lg" x="38" y="618">无条件注入</text>
+<g class="t"><rect x="130" y="608" width="12" height="12" rx="2"/></g><text class="lg" x="148" y="618">条件触发</text>
+<g class="g"><rect x="228" y="608" width="12" height="12" rx="2"/></g><text class="lg" x="246" y="618">入口与说明</text>
+</svg>

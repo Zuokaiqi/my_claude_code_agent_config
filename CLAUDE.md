@@ -15,57 +15,42 @@
    - 项目CLAUDE.md里有「禁止/不要这样做」的清单吗？提前避开。
    - 历史踩坑记录有相关项吗？提前查。
 
-3. 语言密度规则：汉语是双音节语言，动词和形容词优先用两到三个字的完整词，不要压缩成单字
-
-   1. 具体禁止的模式：
-
-      - 单字谓语堆叠：不要写"奶够、药够、温度够"，要写"不缺奶、不缺药、温度也适宜"。
-
-      - 双音节词砍成单字："认不认可"不要缩成"认不认"，"喜欢"不要缩成"喜"，"记得"不要缩成"记"
-
-      - 三连及以上的短句排比："快、准、狠"这类结构一律展开成正常句子
-
-      - 金句感不等于表达质量：少用"不是……而是……"句式
-
-      - 名词性短语当完整句用："一个决定，两种命运"这类电报体，改写成有主谓宾的句子
-
-   2. 判断标准：
-
-      - 写完一句话，读出声，如果一个正常中国人在聊天里不会这么说，就改
-
-      - 口语里自然的说法优先于书面上"看起来利落"的说法。
-
-      - 注意：简洁是指删掉废话和车轱辘话，不是把每个词砍短。该用的字要用够。
-
-
 跳过preflight直接动手，违反「约束先行」原则。这条比下面任何原则都先生效。
 
-## 个人AI操作系统（内容生产类任务的总入口）
+输出中文时的语言规则（语言密度、书面腔、自造术语等九组）全部在[rules/no_ai_style.md](rules/no_ai_style.md)，那份每次都在上下文里，本文件不复述（2026-07-25删掉此处的抄件，它跟第四组逐字重复）。
 
-制度仓库：[personal-ai-os/](personal-ai-os/)（本目录下）
+## 单一权威原则
 
-以下任务动手前先Read [personal-ai-os/SYSTEM.md](personal-ai-os/SYSTEM.md)，按其路由走：备课/课件制作、直播答疑归档、B站视频文稿、知识库归档与巡库、数据分析报告、界面与营销页设计（落地页/官网/招募页/看板，路由到dispatch.md设计轨）。编码类任务不走这里，照下方委派规则执行。
+任何决策只写一处，其他文件只放路径指针。**禁止写「一句话版」「摘要版」「权威在别处但这里再说一句」。**
 
-- 人的判断节点、红线、产出验收标准：[personal-ai-os/checklist.md](personal-ai-os/checklist.md)，内容类产出交付前必须过对应组
-- 派工模板：[personal-ai-os/templates.md](personal-ai-os/templates.md)
-- 制度文件的修改：AI只能提议，流程见[personal-ai-os/maintenance.md](personal-ai-os/maintenance.md)
+Why：摘要会过期，过期之后它看起来仍然像是对的，没人会去核对。2026-07-24一天内发现三处漂移，成因都是这个写法：审美分流规则同时写在四个文件、指向不存在文件的死引用、同一个工作流的权威指向两个不同skill。
+
+判据：写下某条规则前先问「这条在别处有没有权威版本」。有就删掉自己这份，只留路径。
+
+## 错误沉淀
+
+同类问题被用户纠正**第2次必须入库**，不许只口头改了这次。入哪：
+
+- 编码类、跨项目的严重错误 → [rules/error_log.md](rules/error_log.md)，沿用其格式（触发条件、错误做法、根因、实证、正确做法）
+- 内容产出类 → 对应skill的自检章节，写成可勾选的具体标准
+- 每条带实证。「要注意质量」这种写了等于没写，「开头30秒无具体钩子即不合格」才算一条
 
 ## 委派与主线分工
 
-本体攥住主线，重活和可并行的独立工作包委派给Subagent；产品策略和需求拆解类的强交互工作由本体加载对应skill（product-strategy / product-breakdown）主线执行。**编码类**工作哪些活怎么分、完整流程顺序、何时跳过，唯一权威是[rules/sub_agent_dispatch.md](rules/sub_agent_dispatch.md)；**内容生产类**（课件、答疑归档、文稿、知识库、数据分析）的调度权威是[personal-ai-os/dispatch.md](personal-ai-os/dispatch.md)。本文件不另设标准
+本体攥住主线，重活和可并行的独立工作包委派给Subagent；产品策略和需求拆解类的强交互工作由本体加载对应skill（product-strategy / product-breakdown）主线执行。派工的硬约束、模板、测试归属，唯一权威是[rules/sub_agent_dispatch.md](rules/sub_agent_dispatch.md)。
+
+内容生产类任务（备课课件、答疑归档、B站文稿、数据分析、知识库）直接用对应skill，流程和交付前自检都在各自的SKILL.md里。
 
 ## 规则清单
 
 - [rules/no_ai_style.md](rules/no_ai_style.md) — 禁用AI腔表达。**每次对话开始时必须Read**
 - [rules/error_log.md](rules/error_log.md) — 历史错误提炼的强制规则。**每次对话开始时必须Read**
 - [rules/code_rules.md](rules/code_rules.md) — 编码行为准则（先思考、简单优先、外科手术式改动、目标驱动）。**涉及写代码/改代码的任务开始前必须Read**
-- [personal-ai-os/SYSTEM.md](personal-ai-os/SYSTEM.md) — 个人AI操作系统总纲。**内容生产类任务开始前必须Read**
-- [rules/feishu_doc_write.md](rules/feishu_doc_write.md) — 飞书文档写入规则、约束与调用流程
-- [rules/ui_engineering_baseline.md](rules/ui_engineering_baseline.md) — 前端工程正确性底线清单，ui-designer/code-reviewer按需Read
+- [rules/cn_typography.md](rules/cn_typography.md) — 中文页面字体池与加载纪律，**做中文界面时必须Read**
 
 ## 测试
 
-测试归本体写，code-writer 不写测试。何时写、谁写、阈值、体量分级见 [rules/sub_agent_dispatch.md](rules/sub_agent_dispatch.md) 的「何时写测试 / 谁写测试」章节。
+何时写、谁写、怎么写见 [rules/sub_agent_dispatch.md](rules/sub_agent_dispatch.md) 的「测试」一节。
 
 ## 思维原则
 
@@ -86,6 +71,7 @@
 ## 沟通方式
 
 - **默认中文**：代码、命令、变量名用英文
+- **用户背景**：用户是技术纯小白，少说长文本和复杂技术名词，特别是有了AI后，用户对长文本阅读能力显著下下降，需要简化你的输出。
 - **结论先行，再给理由**：不要先铺垫背景，直接说结论，少说废话，节省时间
 - **遇到模糊需求**：先给最合理的方案，再问要不要调整，不要自己默认选择一个答案
 - **少用专业术语**：跟我说话默认我不懂技术黑话（CSS属性名、代码里的类名、行业黑话等），优先大白话说清楚在做什么、为什么。绕不开术语时，顺手把人话解释带一句，不要甩一个术语就当讲完了
@@ -93,7 +79,6 @@
 ## 通用工程纪律
 
 - **找根本原因**：不要为了让代码跑起来注释掉报错或加绕过标记，
-- **密钥安全**：密钥、token、密码不进代码、不进 commit、不进日志
 - **SSH 密钥不要假设没配**：涉及 push 到远端仓库、拉取云仓代码、部署到服务器（git/scp/rsync/ssh）前，先 `ls ~/.ssh/` 看有没有 key、再 `ssh -T git@github.com` 或 `ssh -o BatchMode=yes <host>` 验通。SSH 通了就直接走 SSH 路径（remote 改成 `git@github.com:...` 或目标 host），不要默认问 token、不要建议改 HTTPS、不要等我提示「我有 SSH key」才想起来查。理由：HTTPS 在 Claude Code 这种非交互 shell 里没法弹密码框，默认走 HTTPS 一定卡在 `could not read Username`；SSH 通就一次过
 - **方案先行**：大改动前先在 Plan Mode 出方案，我确认后再动手
 - **任务归档**：任何非平凡任务的工作日志，必须归档到项目文件夹中，保留工作日志

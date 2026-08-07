@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="680" viewBox="0 0 680 680" role="img">
+<title>现在发起一个session会发生什么</title>
+<desc>开场自动装37.5k，说第一句话后走preflight，然后直接进对应skill，中间没有路由层。</desc>
+<style>
+.bg{fill:#FFFFFF}
+.th{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;font-size:14px;font-weight:500}
+.ts{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;font-size:12px}
+.tm{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px}
+.ln{stroke:#B4B2A9;stroke-width:1.5;fill:none}
+.c rect{fill:#FAECE7;stroke:#993C1D;stroke-width:1}
+.c .th{fill:#712B13}
+.c .ts,.c .tm{fill:#993C1D}
+.t rect{fill:#E1F5EE;stroke:#0F6E56;stroke-width:1}
+.t .th{fill:#085041}
+.t .ts,.t .tm{fill:#0F6E56}
+.g rect{fill:#F1EFE8;stroke:#5F5E5A;stroke-width:1}
+.g .th{fill:#444441}
+.g .ts,.g .tm{fill:#5F5E5A}
+.lg{fill:#5F5E5A;font-family:-apple-system,"PingFang SC",sans-serif;font-size:12px}
+@media (prefers-color-scheme:dark){
+.bg{fill:#1B1B1A}
+.ln{stroke:#888780}
+.c rect{fill:#712B13;stroke:#F0997B}
+.c .th{fill:#F5C4B3}
+.c .ts,.c .tm{fill:#F0997B}
+.t rect{fill:#085041;stroke:#5DCAA5}
+.t .th{fill:#9FE1CB}
+.t .ts,.t .tm{fill:#5DCAA5}
+.g rect{fill:#444441;stroke:#B4B2A9}
+.g .th{fill:#D3D1C7}
+.g .ts,.g .tm{fill:#B4B2A9}
+.lg{fill:#B4B2A9}
+}
+</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect class="bg" x="0" y="0" width="680" height="680"/>
+
+<g class="c"><rect x="20" y="8" width="640" height="82" rx="6"/>
+<text class="th" x="36" y="30">一　开场</text><text class="ts" x="644" y="30" text-anchor="end">你还没说话，约 36.8k token</text>
+<text class="ts" x="36" y="53">全局 CLAUDE.md 4.5k　rules 六份 17.1k　workspace 规范 4.4k</text>
+<text class="ts" x="36" y="73">43 个 skill 的描述 10.4k　记忆索引 0.2k</text>
+</g>
+<line class="ln" x1="340" y1="90" x2="340" y2="104" marker-end="url(#arrow)"/>
+
+<g class="g"><rect x="20" y="106" width="640" height="76" rx="6"/>
+<text class="th" x="36" y="128">二　你说第一句话</text><text class="ts" x="644" y="128" text-anchor="end">preflight，动工具之前</text>
+<text class="ts" x="36" y="151">目标项目有 CLAUDE.md 吗。没有就停下提议先建，不拿全局规范顶替</text>
+<text class="ts" x="36" y="171">有就整份读完，它的命名、路径、版式偏好、踩坑优先于全局</text>
+</g>
+<line class="ln" x1="340" y1="182" x2="340" y2="196" marker-end="url(#arrow)"/>
+
+<g class="t"><rect x="20" y="198" width="640" height="34" rx="6"/><text class="th" x="36" y="220">三　直接进对应路径</text><text class="ts" x="644" y="220" text-anchor="end">中间没有路由层了</text></g>
+
+<g class="t"><rect x="20" y="240" width="330" height="150" rx="6"/>
+<text class="th" x="36" y="261">内容类</text>
+<text class="ts" x="36" y="284">备课课件</text><text class="tm" x="334" y="284" text-anchor="end">live-lesson-deck</text>
+<text class="ts" x="36" y="306">答疑归档</text><text class="tm" x="334" y="306" text-anchor="end">live-qa-archive</text>
+<text class="ts" x="36" y="328">B站文稿</text><text class="tm" x="334" y="328" text-anchor="end">juzhang-lesson-script</text>
+<text class="ts" x="36" y="350">数据分析</text><text class="tm" x="334" y="350" text-anchor="end">business-analyst</text>
+<text class="ts" x="36" y="376">流程和验收都在各自 SKILL.md 里</text>
+</g>
+
+<g class="t"><rect x="370" y="240" width="290" height="150" rx="6"/>
+<text class="th" x="386" y="261">其他</text>
+<text class="ts" x="386" y="284">前端界面</text><text class="tm" x="644" y="284" text-anchor="end">antislop 加字体</text>
+<text class="ts" x="386" y="306">产品 UI</text><text class="tm" x="644" y="306" text-anchor="end">再叠 impeccable</text>
+<text class="ts" x="386" y="328">编码</text><text class="tm" x="644" y="328" text-anchor="end">sub_agent_dispatch</text>
+<text class="ts" x="386" y="350">飞书读写</text><text class="tm" x="644" y="350" text-anchor="end">feishu-doc</text>
+<text class="ts" x="386" y="376">营销页从 design-md 挑参照定调</text>
+</g>
+
+<line class="ln" x1="340" y1="390" x2="340" y2="404" marker-end="url(#arrow)"/>
+
+<g class="t"><rect x="20" y="406" width="640" height="72" rx="6"/>
+<text class="th" x="36" y="428">四　交付前</text><text class="ts" x="644" y="428" text-anchor="end">自检就在同一个文件里</text>
+<text class="ts" x="36" y="451">各 skill 自己的交付前自检章节，逐条过，不过就修，修不了说卡在哪条</text>
+<text class="ts" x="36" y="471">产出是界面的另过反套路和中文排版两份</text>
+</g>
+
+<g class="g"><rect x="20" y="494" width="640" height="126" rx="6"/>
+<text class="th" x="36" y="516">全程生效，不分阶段</text>
+<text class="ts" x="36" y="539">语言　　每句中文都过 no_ai_style 九组</text>
+<text class="ts" x="36" y="561">停点　　六个判断节点碰到就停：课程取舍、选题观点、对外发布、</text>
+<text class="ts" x="36" y="579">　　　　对外承诺、改规则、花钱。只能提议，等你点头</text>
+<text class="ts" x="36" y="599">红线　　不代发布、不动钱、不删数据、密钥不进明文</text>
+<text class="ts" x="36" y="617">写规则　先查别处有没有权威版本，有就只留路径</text>
+</g>
+
+<g class="c"><rect x="20" y="640" width="12" height="12" rx="2"/></g><text class="lg" x="38" y="650">自动发生</text>
+<g class="g"><rect x="118" y="640" width="12" height="12" rx="2"/></g><text class="lg" x="136" y="650">检查与约束</text>
+<g class="t"><rect x="228" y="640" width="12" height="12" rx="2"/></g><text class="lg" x="246" y="650">按任务走</text>
+</svg>

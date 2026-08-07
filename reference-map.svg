@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="680" viewBox="0 0 680 680" role="img">
+<title>CLAUDE.md、rules、agents、skills 的引用关系</title>
+<desc>CLAUDE.md和rules自动注入；agents按需调用，各自读少量rules和skills；37个skill之间只有4条引用线。</desc>
+<style>
+.bg{fill:#FFFFFF}
+.th{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;font-size:14px;font-weight:500}
+.ts{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;font-size:12px}
+.tm{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px}
+.tn{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:10px}
+.ln{stroke:#B4B2A9;stroke-width:1.5;fill:none}
+.c rect{fill:#FAECE7;stroke:#993C1D;stroke-width:1}
+.c .th{fill:#712B13}
+.c .ts,.c .tm,.c .tn{fill:#993C1D}
+.t rect{fill:#E1F5EE;stroke:#0F6E56;stroke-width:1}
+.t .th{fill:#085041}
+.t .ts,.t .tm,.t .tn{fill:#0F6E56}
+.p rect{fill:#EEEDFE;stroke:#534AB7;stroke-width:1}
+.p .th{fill:#3C3489}
+.p .ts,.p .tm,.p .tn{fill:#534AB7}
+.g rect{fill:#F1EFE8;stroke:#5F5E5A;stroke-width:1}
+.g .th{fill:#444441}
+.g .ts,.g .tm,.g .tn{fill:#5F5E5A}
+.lg{fill:#5F5E5A;font-family:-apple-system,"PingFang SC",sans-serif;font-size:12px}
+@media (prefers-color-scheme:dark){
+.bg{fill:#1B1B1A}
+.ln{stroke:#888780}
+.c rect{fill:#712B13;stroke:#F0997B}
+.c .th{fill:#F5C4B3}
+.c .ts,.c .tm,.c .tn{fill:#F0997B}
+.t rect{fill:#085041;stroke:#5DCAA5}
+.t .th{fill:#9FE1CB}
+.t .ts,.t .tm,.t .tn{fill:#5DCAA5}
+.p rect{fill:#3C3489;stroke:#AFA9EC}
+.p .th{fill:#CECBF6}
+.p .ts,.p .tm,.p .tn{fill:#AFA9EC}
+.g rect{fill:#444441;stroke:#B4B2A9}
+.g .th{fill:#D3D1C7}
+.g .ts,.g .tm,.g .tn{fill:#B4B2A9}
+.lg{fill:#B4B2A9}
+}
+</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect class="bg" x="0" y="0" width="680" height="680"/>
+
+<g class="g"><rect x="190" y="8" width="300" height="38" rx="6"/><text class="th" x="340" y="26" text-anchor="middle">CLAUDE.md</text><text class="ts" x="340" y="41" text-anchor="middle">101行，开场自动注入，指向下面五份</text></g>
+<line class="ln" x1="340" y1="46" x2="340" y2="58" marker-end="url(#arrow)"/>
+
+<g class="c"><rect x="20" y="60" width="640" height="122" rx="6"/>
+<text class="th" x="36" y="80">rules/ 五份</text><text class="ts" x="644" y="80" text-anchor="end">也是自动注入，跟 CLAUDE.md 一起进上下文</text>
+<text class="tm" x="36" y="103">no_ai_style.md</text><text class="ts" x="644" y="103" text-anchor="end">22 个 skill 加 3 个 agent 引用，全库中心</text>
+<text class="tm" x="36" y="124">cn_typography.md</text><text class="ts" x="644" y="124" text-anchor="end">4 个 skill 加 3 个 agent，中文界面唯一来源</text>
+<text class="tm" x="36" y="145">error_log.md</text><text class="ts" x="644" y="145" text-anchor="end">6 条历史事故，被 live-qa-archive 引</text>
+<text class="tm" x="36" y="166">sub_agent_dispatch.md　code_rules.md</text><text class="ts" x="644" y="166" text-anchor="end">派工硬约束、编码准则</text>
+</g>
+<line class="ln" x1="340" y1="182" x2="340" y2="196" marker-end="url(#arrow)"/>
+
+<g class="t"><rect x="20" y="198" width="640" height="30" rx="6"/><text class="th" x="36" y="218">agents/ 四个</text><text class="ts" x="644" y="218" text-anchor="end">不自动注入，派工时才加载</text></g>
+
+<g class="t"><rect x="20" y="236" width="152" height="76" rx="6"/>
+<text class="ts" x="96" y="256" text-anchor="middle">code-writer</text>
+<text class="tn" x="96" y="276" text-anchor="middle">impeccable</text>
+<text class="tn" x="96" y="292" text-anchor="middle">cn_typography</text>
+<text class="tn" x="96" y="306" text-anchor="middle">no_ai_style</text>
+</g>
+<g class="t"><rect x="184" y="236" width="152" height="76" rx="6"/>
+<text class="ts" x="260" y="256" text-anchor="middle">code-reviewer</text>
+<text class="tn" x="260" y="276" text-anchor="middle">impeccable</text>
+<text class="tn" x="260" y="292" text-anchor="middle">webapp-testing</text>
+<text class="tn" x="260" y="306" text-anchor="middle">cn_typography</text>
+</g>
+<g class="t"><rect x="348" y="236" width="152" height="76" rx="6"/>
+<text class="ts" x="424" y="256" text-anchor="middle">ux-reviewer</text>
+<text class="tn" x="424" y="276" text-anchor="middle">ux-bug-check</text>
+<text class="tn" x="424" y="292" text-anchor="middle">webapp-testing</text>
+<text class="tn" x="424" y="306" text-anchor="middle">no_ai_style</text>
+</g>
+<g class="t"><rect x="512" y="236" width="148" height="76" rx="6"/>
+<text class="ts" x="586" y="256" text-anchor="middle">ui-designer</text>
+<text class="tn" x="586" y="276" text-anchor="middle">impeccable</text>
+<text class="tn" x="586" y="292" text-anchor="middle">cn_typography</text>
+<text class="tn" x="586" y="306" text-anchor="middle">no_ai_style</text>
+</g>
+<line class="ln" x1="340" y1="312" x2="340" y2="326" marker-end="url(#arrow)"/>
+
+<g class="p"><rect x="20" y="328" width="640" height="30" rx="6"/><text class="th" x="36" y="348">skills/ 三十七个</text><text class="ts" x="644" y="348" text-anchor="end">只有描述常驻，正文用到才读</text></g>
+
+<g class="p"><rect x="20" y="366" width="315" height="96" rx="6"/>
+<text class="ts" x="36" y="386">内容生产 4</text><text class="tn" x="329" y="386" text-anchor="end">deck / 答疑 / 文稿 / 分析</text>
+<text class="ts" x="36" y="406">前端 6</text><text class="tn" x="329" y="406" text-anchor="end">impeccable / slides / pdf / 三审查</text>
+<text class="ts" x="36" y="426">产品拆解 4</text><text class="tn" x="329" y="426" text-anchor="end">strategy / breakdown / ooux / feature</text>
+<text class="ts" x="36" y="448">工程流 5</text><text class="tn" x="329" y="448" text-anchor="end">tdd / grill / wayfinder / research 等</text>
+</g>
+<g class="p"><rect x="345" y="366" width="315" height="96" rx="6"/>
+<text class="ts" x="361" y="386">文档工具 6</text><text class="tn" x="654" y="386" text-anchor="end">docx / xlsx / pptx / pdf / 飞书两个</text>
+<text class="ts" x="361" y="406">写作 4</text><text class="tn" x="654" y="406" text-anchor="end">卡兹克 / 林亦 / 长文 / 横纵分析</text>
+<text class="ts" x="361" y="426">其他 8</text><text class="tn" x="654" y="426" text-anchor="end">aihot / neat-freak / 存储 / 定位 等</text>
+<text class="ts" x="361" y="448">22 个引用 no_ai_style，其余是英文工具</text>
+</g>
+
+<g class="g"><rect x="20" y="476" width="640" height="104" rx="6"/>
+<text class="th" x="36" y="496">skill 之间只有四条引用</text><text class="ts" x="644" y="496" text-anchor="end">37 个里绝大多数互不依赖</text>
+<text class="tm" x="36" y="519">business-analyst → pdf-publisher</text><text class="ts" x="644" y="519" text-anchor="end">今天刚建，PDF 技术链路</text>
+<text class="tm" x="36" y="540">live-lesson-deck → ui-copy-check</text><text class="ts" x="644" y="540" text-anchor="end">课件上墙字检查</text>
+<text class="tm" x="36" y="561">ux-bug-check → ui-copy-check 加 webapp-testing</text><text class="ts" x="644" y="561" text-anchor="end">体验审查的两个下游</text>
+<text class="tm" x="36" y="576">product-breakdown → feature-breakdown 加 ooux</text><text class="ts" x="644" y="576" text-anchor="end">拆解的两条方法论</text>
+</g>
+
+<g class="g"><rect x="20" y="594" width="12" height="12" rx="2"/></g><text class="lg" x="38" y="604">入口与说明</text>
+<g class="c"><rect x="128" y="594" width="12" height="12" rx="2"/></g><text class="lg" x="146" y="604">自动注入</text>
+<g class="t"><rect x="226" y="594" width="12" height="12" rx="2"/></g><text class="lg" x="244" y="604">派工时加载</text>
+<g class="p"><rect x="336" y="594" width="12" height="12" rx="2"/></g><text class="lg" x="354" y="604">用到才读</text>
+</svg>

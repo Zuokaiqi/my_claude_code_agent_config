@@ -197,3 +197,13 @@ See <a href="#sec3">Section 3</a>...
 | Process | pdfplumber | Text and table extraction |
 | Process | LibreOffice | Office → PDF conversion |
 | LaTeX | Tectonic | LaTeX → PDF compilation |
+
+## 被谁依赖
+
+`business-analyst` 的PDF输出依赖本skill的 `routes/html.md` 提供技术链路（2026-07-25起，此前它自己维护了一份重复实现）。删除或移动本skill前先改那边的引用：`business-analyst/references/pdf_rendering.md` 和 `business-analyst/SKILL.md` 第136行。
+
+那边只保留分析报告的视觉特化（design token、图表同源、三线表、设计感封面、中文字体栈），并明确声明不用本skill默认的LaTeX学术风格。
+
+## 语言规范
+
+产出给用户看的文字前遵守 `~/.claude/rules/no_ai_style.md`（九组，含「错→对」词表），本文件不复述其条款。

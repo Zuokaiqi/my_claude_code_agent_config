@@ -5,6 +5,7 @@ CLAUDE_back.md
 
 # 运行时数据
 history.jsonl
+uploads/
 backups/
 cache/
 debug/

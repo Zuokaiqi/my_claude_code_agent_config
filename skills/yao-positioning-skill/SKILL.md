@@ -61,3 +61,7 @@ metadata:
 - 渲染资产：`assets/report-template.html`、`assets/echarts.min.js`
 - 系统说明：`reports/positioning-skill-system-overview-2026-07-16/index.html`
 - 分发净化：`scripts/sanitize-package.py`（仅在重建 ZIP 后执行）
+
+## 语言规范
+
+产出给用户看的文字前遵守 `~/.claude/rules/no_ai_style.md`（九组，含「错→对」词表），本文件不复述其条款。

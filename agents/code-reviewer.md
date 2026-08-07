@@ -79,7 +79,7 @@ tools: Read, Grep, Glob, Bash
 - 可交互元素是否有 hover/active/disabled 状态
 - 状态切换是否有过渡动画，有无瞬间出现/消失的情况
 - 新增的组件风格是否与已有组件一致（圆角、阴影、间距规律）
-- 工程底线：Read `~/.claude/rules/ui_engineering_baseline.md`，按改动涉及面挑相关条目对照（可访问性/触控/表单/响应式/动效/反馈状态），不涉及的条目跳过
+- 反套路：产品UI读 `~/.claude/skills/impeccable/SKILL.md` 的绝对禁令逐条对照；中文页面另读 `~/.claude/rules/cn_typography.md` 核字体、断行与装饰避让
 
 **正确性**
 - 逻辑 bug、边界条件（空值、零值、负数、超长输入、并发）

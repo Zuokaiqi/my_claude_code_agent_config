@@ -20,7 +20,7 @@ model: sonnet
 ## 不接的事
 
 - 代码正确性、AC核验、安全 → code-reviewer
-- 工程规范（a11y / 性能 / 触控尺寸 / 响应式）→ code-reviewer 工程底线
+- 工程规范（a11y / 性能 / 触控尺寸 / 响应式）→ 由 code-reviewer 按 impeccable 的 a11y 条款查
 - 商业判断（拉新 / 留存 / 变现）→ product-strategy skill
 - 视觉系统合规、UI规格、设计token → ui-designer 设计模式
 - 给具体UI改法（字号、色值、间距规格）→ ui-designer

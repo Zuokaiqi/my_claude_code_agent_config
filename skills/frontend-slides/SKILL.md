@@ -378,3 +378,13 @@ This captures each slide as a screenshot and combines them into a PDF. Perfect f
 | [scripts/extract-pptx.py](scripts/extract-pptx.py) | Python script for PPT content extraction                             | Phase 4 (conversion)      |
 | [scripts/deploy.sh](scripts/deploy.sh)             | Deploy slides to Vercel for instant sharing                          | Phase 6 (sharing)         |
 | [scripts/export-pdf.sh](scripts/export-pdf.sh)     | Export slides to PDF                                                 | Phase 6 (sharing)         |
+
+## 中文幻灯片
+
+产出中文 slides 时读 `~/.claude/rules/cn_typography.md`，字体从中文字体池取。不读会退化成系统默认宋体黑体，display 字体的选择也全是拉丁字体假设。
+
+slides 不套网页的版式规则：每页一个大标题在网页里算眉题，在 slides 里是正常结构。
+
+## 语言规范
+
+产出给用户看的文字前遵守 `~/.claude/rules/no_ai_style.md`（九组，含「错→对」词表），本文件不复述其条款。

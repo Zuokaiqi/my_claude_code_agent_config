@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="680" viewBox="0 0 680 680" role="img">
+<title>2026-07-25 简化后的完整工作流</title>
+<desc>开场加载四样东西，说完需求直接进对应skill，交付前过自检，全程受语言规则和判断节点约束。</desc>
+<style>
+.bg{fill:#FFFFFF}
+.th{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;font-size:14px;font-weight:500}
+.ts{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;font-size:12px}
+.tm{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px}
+.tn{font-family:-apple-system,"PingFang SC",sans-serif;font-size:11px}
+.ln{stroke:#B4B2A9;stroke-width:1.5;fill:none}
+.c rect{fill:#FAECE7;stroke:#993C1D;stroke-width:1}
+.c .th{fill:#712B13}
+.c .ts,.c .tm,.c .tn{fill:#993C1D}
+.p rect{fill:#EEEDFE;stroke:#534AB7;stroke-width:1}
+.p .th{fill:#3C3489}
+.p .ts,.p .tm,.p .tn{fill:#534AB7}
+.t rect{fill:#E1F5EE;stroke:#0F6E56;stroke-width:1}
+.t .th{fill:#085041}
+.t .ts,.t .tm,.t .tn{fill:#0F6E56}
+.g rect{fill:#F1EFE8;stroke:#5F5E5A;stroke-width:1}
+.g .th{fill:#444441}
+.g .ts,.g .tm,.g .tn{fill:#5F5E5A}
+.lg{fill:#5F5E5A;font-family:-apple-system,"PingFang SC",sans-serif;font-size:11px}
+@media (prefers-color-scheme:dark){
+.bg{fill:#1B1B1A}
+.ln{stroke:#888780}
+.c rect{fill:#712B13;stroke:#F0997B}
+.c .th{fill:#F5C4B3}
+.c .ts,.c .tm,.c .tn{fill:#F0997B}
+.p rect{fill:#3C3489;stroke:#AFA9EC}
+.p .th{fill:#CECBF6}
+.p .ts,.p .tm,.p .tn{fill:#AFA9EC}
+.t rect{fill:#085041;stroke:#5DCAA5}
+.t .th{fill:#9FE1CB}
+.t .ts,.t .tm,.t .tn{fill:#5DCAA5}
+.g rect{fill:#444441;stroke:#B4B2A9}
+.g .th{fill:#D3D1C7}
+.g .ts,.g .tm,.g .tn{fill:#B4B2A9}
+.lg{fill:#B4B2A9}
+}
+</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect class="bg" x="0" y="0" width="680" height="680"/>
+
+<g class="c"><rect x="20" y="8" width="640" height="72" rx="6"/>
+<text class="th" x="36" y="28">一　开场自动装的四样</text><text class="ts" x="644" y="28" text-anchor="end">你还没说话</text>
+<text class="ts" x="36" y="50">rules 五份 46%　17个skill的描述 25%　workspace规范 16%　全局CLAUDE.md 13%</text>
+<text class="tn" x="36" y="70">今天从九份rules加43个skill砍到这里，skill描述回到预算内，路由不再被截断</text>
+</g>
+<line class="ln" x1="340" y1="80" x2="340" y2="94" marker-end="url(#arrow)"/>
+
+<g class="g"><rect x="20" y="96" width="640" height="46" rx="6"/>
+<text class="th" x="36" y="116">二　你说要做什么</text><text class="ts" x="644" y="116" text-anchor="end">先查项目有没有自己的CLAUDE.md</text>
+<text class="tn" x="36" y="134">没有就停下提议先建，有就整份读完。它的约定优先于全局</text>
+</g>
+<line class="ln" x1="340" y1="142" x2="340" y2="156" marker-end="url(#arrow)"/>
+
+<g class="p"><rect x="20" y="158" width="315" height="120" rx="6"/>
+<text class="th" x="36" y="178">备课与答疑（主力）</text>
+<text class="tm" x="36" y="200">live-lesson-deck</text><text class="ts" x="329" y="200" text-anchor="end">27次，课件</text>
+<text class="tm" x="36" y="220">frontend-slides</text><text class="ts" x="329" y="220" text-anchor="end">7次，配合它做动画</text>
+<text class="tm" x="36" y="240">live-qa-archive</text><text class="ts" x="329" y="240" text-anchor="end">5次，答疑归档</text>
+<text class="tm" x="36" y="260">feishu-doc</text><text class="ts" x="329" y="260" text-anchor="end">飞书读写，新建</text>
+</g>
+
+<g class="p"><rect x="345" y="158" width="315" height="120" rx="6"/>
+<text class="th" x="361" y="178">写作与分析</text>
+<text class="tm" x="361" y="200">juzhang-lesson-script</text><text class="ts" x="654" y="200" text-anchor="end">B站文稿</text>
+<text class="tm" x="361" y="220">business-analyst</text><text class="ts" x="654" y="220" text-anchor="end">4次，加pdf-publisher</text>
+<text class="tm" x="361" y="240">khazix-writer</text><text class="ts" x="654" y="240" text-anchor="end">公众号长文</text>
+<text class="tm" x="361" y="260">hv-analysis</text><text class="ts" x="654" y="260" text-anchor="end">横纵研究报告</text>
+</g>
+
+<g class="t"><rect x="20" y="286" width="315" height="102" rx="6"/>
+<text class="th" x="36" y="306">前端界面</text>
+<text class="ts" x="36" y="328">产品UI</text><text class="tm" x="329" y="328" text-anchor="end">impeccable</text>
+<text class="ts" x="36" y="348">营销页</text><text class="ts" x="329" y="348" text-anchor="end">裸跑，不加载skill</text>
+<text class="ts" x="36" y="368">中文页面</text><text class="tm" x="329" y="368" text-anchor="end">cn_typography</text>
+</g>
+
+<g class="t"><rect x="345" y="286" width="315" height="102" rx="6"/>
+<text class="th" x="361" y="306">编码</text>
+<text class="ts" x="361" y="328">派不派现场判断，够重或能并行才派</text>
+<text class="tm" x="361" y="350">code-writer</text><text class="ts" x="654" y="350" text-anchor="end">写实现</text>
+<text class="tm" x="361" y="370">ui-designer</text><text class="ts" x="654" y="370" text-anchor="end">只出方案</text>
+</g>
+<line class="ln" x1="340" y1="388" x2="340" y2="402" marker-end="url(#arrow)"/>
+
+<g class="t"><rect x="20" y="404" width="640" height="96" rx="6"/>
+<text class="th" x="36" y="424">三　交付前</text><text class="ts" x="644" y="424" text-anchor="end">自检就在各skill自己的文件里</text>
+<text class="ts" x="36" y="446">内容类　各skill的「交付前自检」章节，逐条过，卡住就说卡在哪条</text>
+<text class="tm" x="36" y="468">ui-copy-check</text><text class="ts" x="654" y="468" text-anchor="end">25次，界面文字专业度</text>
+<text class="tm" x="36" y="488">ux-bug-check　webapp-testing</text><text class="ts" x="654" y="488" text-anchor="end">20次，体验审查加起服务实跑</text>
+</g>
+
+<g class="g"><rect x="20" y="516" width="640" height="86" rx="6"/>
+<text class="th" x="36" y="536">全程都在的</text>
+<text class="ts" x="36" y="558">每句中文过 no_ai_style 九组　六个判断节点碰到就停下等你点头</text>
+<text class="ts" x="36" y="578">四条红线不碰：不代发布、不动钱、不删数据、密钥不进明文</text>
+<text class="ts" x="36" y="596">写规则前先查别处有没有权威版本，有就只留路径</text>
+</g>
+
+<g class="c"><rect x="20" y="614" width="12" height="12" rx="2"/></g><text class="lg" x="38" y="624">自动加载</text>
+<g class="g"><rect x="112" y="614" width="12" height="12" rx="2"/></g><text class="lg" x="130" y="624">检查与约束</text>
+<g class="p"><rect x="216" y="614" width="12" height="12" rx="2"/></g><text class="lg" x="234" y="624">内容生产</text>
+<g class="t"><rect x="310" y="614" width="12" height="12" rx="2"/></g><text class="lg" x="328" y="624">界面与编码</text>
+
+<text class="lg" x="644" y="624" text-anchor="end">今天：skill 43→17，rules 9→5，中间路由层已拆</text>
+</svg>

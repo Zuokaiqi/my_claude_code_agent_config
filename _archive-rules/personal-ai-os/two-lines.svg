@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="680" viewBox="0 0 680 680" role="img">
+<title>内容线与前端线的真实关系</title>
+<desc>前端不是第二条线，是所有内容工作流的最后一段。现在七个产出界面的skill里五个绕过了它。</desc>
+<style>
+.bg{fill:#FFFFFF}
+.th{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;font-size:14px;font-weight:500}
+.ts{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;font-size:12px}
+.tm{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px}
+.ln{stroke:#B4B2A9;stroke-width:1.5;fill:none}
+.dash{stroke:#993C1D;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.g rect{fill:#F1EFE8;stroke:#5F5E5A;stroke-width:1}
+.g .th{fill:#444441}
+.g .ts,.g .tm{fill:#5F5E5A}
+.t rect{fill:#E1F5EE;stroke:#0F6E56;stroke-width:1}
+.t .th{fill:#085041}
+.t .ts,.t .tm{fill:#0F6E56}
+.c rect{fill:#FAECE7;stroke:#993C1D;stroke-width:1}
+.c .th{fill:#712B13}
+.c .ts,.c .tm{fill:#993C1D}
+.lg{fill:#5F5E5A;font-family:-apple-system,"PingFang SC",sans-serif;font-size:12px}
+@media (prefers-color-scheme:dark){
+.bg{fill:#1B1B1A}
+.ln{stroke:#888780}
+.dash{stroke:#F0997B}
+.g rect{fill:#444441;stroke:#B4B2A9}
+.g .th{fill:#D3D1C7}
+.g .ts,.g .tm{fill:#B4B2A9}
+.t rect{fill:#085041;stroke:#5DCAA5}
+.t .th{fill:#9FE1CB}
+.t .ts,.t .tm{fill:#5DCAA5}
+.c rect{fill:#712B13;stroke:#F0997B}
+.c .th{fill:#F5C4B3}
+.c .ts,.c .tm{fill:#F0997B}
+.lg{fill:#B4B2A9}
+}
+</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect class="bg" x="0" y="0" width="680" height="680"/>
+
+<g class="g"><rect x="130" y="8" width="420" height="42" rx="6"/><text class="th" x="340" y="27" text-anchor="middle">前端不是第二条线</text><text class="ts" x="340" y="43" text-anchor="middle">它是几乎所有内容工作流的最后一段</text></g>
+<line class="ln" x1="340" y1="50" x2="340" y2="62" marker-end="url(#arrow)"/>
+
+<g class="g"><rect x="20" y="64" width="640" height="86" rx="6"/>
+<text class="th" x="36" y="85">第一段　内容决策</text><text class="ts" x="644" y="85" text-anchor="end">各工作流自己判断，没有通用规则</text>
+<text class="ts" x="36" y="109">备课取舍哪些知识点、答疑精炼哪些要点、文稿定什么观点、</text>
+<text class="ts" x="36" y="131">分析定什么口径、看板回答什么决策问题、营销页讲什么卖点</text>
+</g>
+<line class="ln" x1="340" y1="150" x2="340" y2="164" marker-end="url(#arrow)"/>
+
+<g class="t"><rect x="20" y="166" width="640" height="34" rx="6"/><text class="th" x="36" y="188">第二段　呈现载体</text><text class="ts" x="644" y="188" text-anchor="end">决定用哪个 skill 出活</text></g>
+
+<g class="t"><rect x="20" y="208" width="380" height="164" rx="6"/>
+<text class="th" x="36" y="229">产出界面的（六条）</text>
+<text class="ts" x="36" y="252">课件 deck</text><text class="tm" x="384" y="252" text-anchor="end">live-lesson-deck</text>
+<text class="ts" x="36" y="274">网页 PPT</text><text class="tm" x="384" y="274" text-anchor="end">frontend-slides</text>
+<text class="ts" x="36" y="296">数据看板</text><text class="tm" x="384" y="296" text-anchor="end">bi-dashboard</text>
+<text class="ts" x="36" y="318">分析报告</text><text class="tm" x="384" y="318" text-anchor="end">business-analyst</text>
+<text class="ts" x="36" y="340">营销落地页</text><text class="tm" x="384" y="340" text-anchor="end">design-md 参照</text>
+<text class="ts" x="36" y="362">产品 UI 看板</text><text class="tm" x="384" y="362" text-anchor="end">impeccable</text>
+</g>
+
+<g class="t"><rect x="420" y="208" width="240" height="164" rx="6"/>
+<text class="th" x="436" y="229">不产出界面的</text>
+<text class="ts" x="436" y="252">B站文稿</text><text class="ts" x="644" y="252" text-anchor="end">纯文本</text>
+<text class="ts" x="436" y="274">飞书文档</text><text class="ts" x="644" y="274" text-anchor="end">平台排版</text>
+<text class="ts" x="436" y="296">静态海报</text><text class="ts" x="644" y="296" text-anchor="end">canvas-design</text>
+<text class="ts" x="436" y="330">这几条只过语言规范</text>
+<text class="ts" x="436" y="352">不走下面那一段</text>
+</g>
+
+<line class="dash" x1="210" y1="372" x2="210" y2="396" marker-end="url(#arrow)"/>
+<g class="c"><rect x="238" y="376" width="200" height="20" rx="4"/><text class="ts" x="338" y="390" text-anchor="middle">这一步现在基本没接上</text></g>
+
+<g class="c"><rect x="20" y="402" width="640" height="34" rx="6"/><text class="th" x="36" y="424">第三段　前端底线</text><text class="ts" x="644" y="424" text-anchor="end">上面六条都该汇到这里</text></g>
+
+<g class="c"><rect x="20" y="444" width="640" height="112" rx="6"/>
+<text class="tm" x="36" y="466">frontend_antislop.md</text><text class="ts" x="644" y="466" text-anchor="end">反套路硬门槛，禁令加可数的版式规则</text>
+<text class="tm" x="36" y="488">cn_typography.md</text><text class="ts" x="644" y="488" text-anchor="end">中文字体池与加载纪律</text>
+<text class="tm" x="36" y="510">ui_engineering_baseline.md</text><text class="ts" x="644" y="510" text-anchor="end">对比度、触控、响应式、中文断行</text>
+<text class="tm" x="36" y="532">ui-copy-check</text><text class="ts" x="644" y="532" text-anchor="end">按钮、空状态、上墙字的专业度</text>
+<text class="ts" x="36" y="550">这四份跟内容讲什么无关，只跟「产出物要被眼睛看」有关</text>
+</g>
+
+<g class="g"><rect x="20" y="568" width="640" height="86" rx="6"/>
+<text class="th" x="36" y="589">断在哪</text>
+<text class="ts" x="36" y="611">六个产出界面的 skill 里，五个完全不引用这四份中的任何一份</text>
+<text class="ts" x="36" y="631">live-lesson-deck 只引用了字体那份，business-analyst 是今天才补上的</text>
+<text class="ts" x="36" y="649">结果是每周花时间最多的备课课件，不过反套路，也不过工程底线</text>
+</g>
+</svg>
